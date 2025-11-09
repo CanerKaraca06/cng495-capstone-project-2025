@@ -1,0 +1,83 @@
+package com.capstoneproject.musicplatform.model;     //Include the model package
+
+import jakarta.persistence.*;              //JPA
+
+
+
+@Entity         //User entity
+@Table(name = "users")        //Set table name from default to "users"
+public class User {      //User entity defined
+    @Id             //ID as the primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)     //Generate an auto-increment value
+    private Long id;         //Unique ID
+
+    @Column(unique = true, nullable = false)     //username column, not nullable and unique
+    private String username;
+
+    @Column(nullable = false)         //password column, not nullable
+    private String password;
+
+    @Column(unique = true,nullable = false)   //email column, not nullable and unique
+    private String email;
+
+    @Column(nullable = false)
+    private String role = "USER";     //Default role
+
+    public User(){        //Default constructor
+
+    }
+
+    public User(Long id, String username, String password, String email, String role) {     //Parameterized constructor
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.role = role;
+    }
+
+    /*
+    GETTERS AND SETTERS
+    */
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+    /**MAY EXTEND FURTHER IN FUTURE**/
+}
+
+
