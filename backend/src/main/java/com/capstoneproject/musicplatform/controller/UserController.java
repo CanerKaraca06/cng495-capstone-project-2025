@@ -1,11 +1,13 @@
 /**CONTROLLER CLASS CONTROLS THE HTTP REQUESTS**/
 package com.capstoneproject.musicplatform.controller;
 
+import com.capstoneproject.musicplatform.model.Artist;
 import com.capstoneproject.musicplatform.model.User;
 import com.capstoneproject.musicplatform.service.UserService;
 import org.springframework.http.ResponseEntity;       //For http requests
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin(origins = "*")
