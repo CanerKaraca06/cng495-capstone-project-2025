@@ -15,10 +15,12 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())       //Cross site request forgery
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/users/**").permitAll() //Anyone can register
+                        .requestMatchers("/api/artists/**").permitAll()
+                        .requestMatchers("/api/health").permitAll()
                         .anyRequest().authenticated()         //Rest needs to be authenticated
                 )
-                .formLogin(login -> login.disable())   //Form login disabled
-                .httpBasic(httpBasic -> httpBasic.disable());   //Basic auth disabled
+                .formLogin(form -> form.disable())   //Form login disabled
+                .httpBasic(basic -> basic.disable());   //Basic auth disabled
         return http.build();
     }
 
